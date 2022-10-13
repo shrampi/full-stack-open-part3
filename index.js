@@ -32,6 +32,8 @@ morgan.token('person', (request, response) => {return JSON.stringify(request.bod
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :person'))
 
+app.use(express.static('build'))
+
 app.get('/api/persons', (request, response) => {
     response.json(persons);
 });
